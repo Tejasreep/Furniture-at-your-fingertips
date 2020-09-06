@@ -96,7 +96,7 @@ function buildUrl() {
   }
   //Build the URL
   // Category is the Query parameter
-  return 'http://localhost:3000/getFurniture?category=' + category;
+  return 'https://nodejsfurnitureapi.herokuapp.com/getfurniture?category=' + category;
 }
 /**
  * Makes a http get request(AJAX) to get furniture data.
