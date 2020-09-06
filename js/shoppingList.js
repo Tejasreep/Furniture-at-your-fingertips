@@ -11,6 +11,13 @@
   * Consant variable which holds the InnerHTML of ShoppingList module.
   */
 const shop = `
+<div id="overlay">
+  <div class="d-flex justify-content-center">
+    <div class="custom-spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-4">
@@ -102,6 +109,9 @@ function buildUrl() {
  * Makes a http get request(AJAX) to get furniture data.
  */
 function getFurnitureData() {
+  // Show Loader
+  document.getElementById("overlay").style.display = "block";
+  
   const Http = new XMLHttpRequest();
   const url = buildUrl();
   Http.open("GET", url);
@@ -174,7 +184,8 @@ function renderpage(furnitureData) {
     cardTitleCategory.append(cardTitleCategoryText);
     boldText.append(cardTitleCategory);
     cardText.append(boldText);
-
+    // Hide Loader
+    document.getElementById("overlay").style.display = "none";
     // Attach the element(card with Item detils and image) created to Shop DOM
     shoppingListItems.appendChild(columnClass);
   }
